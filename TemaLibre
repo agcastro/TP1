@@ -1,0 +1,49 @@
+//andres Guillermo Castro
+//k1051
+// TP1: Tema_Libre 
+// FALTA EL USO DE BOOL Y STRING (NO ESTA COMPLETO)
+// 23/04/2015
+
+#include <iostream>//libreria de entrada salida.
+using namespace std;
+int LEG, nota, cant, cont;
+bool rta;
+char preg;
+double prom, suma;
+unsigned int cont1 = 0;
+
+int main()// inicio de la funcion principal.
+{
+inicio:
+	cout << "ingrese legajo del alumno" << endl;
+	cin >> LEG;
+	cout << "¿cuantas notas desea cargar?" << endl;
+	cin >> cant;
+	cout << "ingrese notas para sacar el promedio " << endl;
+	while (cont != cant)
+	{
+		cin >> nota;
+		suma = suma + nota;
+		cont++;
+	}
+	cout << " la carga de notas a finalizado. ¿ desea sacar el promedio y/n?"<< endl;
+	cin >> preg;
+
+	if (preg == 'y')
+	{
+		prom = suma / cant;
+		cout << "el promedio de alumno "<< LEG << "es " << prom << endl;
+	}
+	else
+	{
+
+		system("pause");
+		while (true)
+		{
+			 cont1++;
+			if (cont1 % 1000 == 0)
+				goto inicio;
+		}
+	}
+
+}
