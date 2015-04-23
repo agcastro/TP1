@@ -1,49 +1,38 @@
-// andres Guillermo Castro
-// k1051
+//andres Guillermo Castro
+//k1051
 // TP1: Tema_Libre 
+// FALTA EL USO DE BOOL Y STRING (NO ESTA COMPLETO)
 // 23/04/2015
 
 #include <iostream>
 #include <string>
 using namespace std;
 int LEG, nota, cant, cont;
-string nombre;		//nombre del alumno
-bool flag;		// bandera de 0
-char rta; 		//caracter para pregunta
+string nombre;
+bool flag;
+char preg;
 double prom, suma;
 unsigned int cont1 = 0;
-void restart()
-{
-	system("pause");
-	while (true)
-	{
-		cont1++;
-		if (cont1 % 1000 == 0)
-			goto inicio;
-	}
-}
-
-
 
 int main()
 {
 inicio:
-	cout << "ingrese nombre del alumno" << endl; 			//carga de datos 
+	cout << "ingrese nombre del alumno" << endl; //carga de datos 
 	cin >> nombre;
 	cout << "ingrese legajo del alumno" << endl;
 	cin >> LEG;
 	cout << "¿cuantas notas desea cargar?" << endl;
-	cin >> cant;							// finaliza la carga 
+	cin >> cant;									// finaliza la carga 
 	cout << "ingrese notas para sacar el promedio, nota maxima 10 " << endl;
 
 	flag = false; // bandera de 0 
 
-	while (cont != cant && cant <= 10)
+	while (cont != cant && nota <= 10)
 	{
 		cin >> nota;
 		if (nota == 0)
 		{
-			flag = true; 		// si la nota es 0 se activa la bandera 
+			flag = true; // si la nota es 0 se activa la bandera 
 			suma = suma + nota;
 		}
 		else
@@ -52,33 +41,52 @@ inicio:
 		}
 		cont++;
 	}
-	if (cant > 10)
+	if (nota > 10)
 	{
 		cout << "error la nota es mayor a 10" << endl;
-		restart();
+		system("pause");
+		while (true)
+		{
+			cont1++;
+			if (cont1 % 1000 == 0)
+				goto inicio;
+		}
 
 	}
 	if (flag == true)
 	{
 		cout << "se detecto una nota igual a 0;" << endl << "desea volver a cargar? y/n ";
-		cin >> rta;
+		cin >> preg;
 
-		if (rta == 'y')
+		if (preg == 'y')
 		{
-			restart();
+			system("pause");
+			while (true)
+			{
+				cont1++;
+				if (cont1 % 1000 == 0)
+					goto inicio;
+			}
 		}
 	}
 
 	cout << " la carga de notas a finalizado. ¿ desea sacar el promedio y/n?" << endl;
-	cin >> rta;
+	cin >> preg;
 
-	if (rta == 'y')
+	if (preg == 'y')
 	{
 		prom = suma / cant;
 		cout << "el promedio de alumno "<< nombre << " " << LEG << " es " << prom << endl;
 	}
 	else
 	{
-		restart();
+		system("pause");
+		while (true)
+		{
+			cont1++;
+			if (cont1 % 1000 == 0)
+				goto inicio;
+		}
 	}
+
 }
