@@ -4,15 +4,15 @@
 // FALTA EL USO DE BOOL Y STRING (NO ESTA COMPLETO)
 // 23/04/2015
 
-#include <iostream>//libreria de entrada salida.
+#include <iostream>
 using namespace std;
 int LEG, nota, cant, cont;
-bool rta;
+bool flag;
 char preg;
 double prom, suma;
 unsigned int cont1 = 0;
 
-int main()// inicio de la funcion principal.
+int main()
 {
 inicio:
 	cout << "ingrese legajo del alumno" << endl;
@@ -20,19 +20,44 @@ inicio:
 	cout << "¿cuantas notas desea cargar?" << endl;
 	cin >> cant;
 	cout << "ingrese notas para sacar el promedio " << endl;
+	flag = false;
 	while (cont != cant)
 	{
 		cin >> nota;
-		suma = suma + nota;
+		if (nota == 0)
+		{
+			flag = true;
+			suma = suma + nota;
+		}
+		else
+		{
+			suma = suma + nota;
+		}
 		cont++;
 	}
-	cout << " la carga de notas a finalizado. ¿ desea sacar el promedio y/n?"<< endl;
+	if (flag == true)
+	{
+		cout << "se detecto una nota igual a 0;" << endl << "desea volver a cargar? y/n ";
+		cin >> preg;
+
+		if (preg == 'y')
+		{
+			while (true)
+			{
+				cont1++;
+				if (cont1 % 1000 == 0)
+				goto inicio;
+			}
+		}
+
+	}
+	cout << " la carga de notas a finalizado. ¿ desea sacar el promedio y/n?" << endl;
 	cin >> preg;
 
 	if (preg == 'y')
 	{
 		prom = suma / cant;
-		cout << "el promedio de alumno "<< LEG << "es " << prom << endl;
+		cout << "el promedio de alumno " << LEG << " es " << prom << endl;
 	}
 	else
 	{
@@ -40,9 +65,9 @@ inicio:
 		system("pause");
 		while (true)
 		{
-			 cont1++;
+			cont1++;
 			if (cont1 % 1000 == 0)
-				goto inicio;
+			goto inicio;
 		}
 	}
 
