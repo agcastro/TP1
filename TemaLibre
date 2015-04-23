@@ -7,7 +7,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int LEG =0, nota=0, cant=0, cont=0;
+int LEG, nota, cant, cont;
 string nombre;
 bool flag;
 char preg;
@@ -18,17 +18,17 @@ int main()
 {
 inicio:
 	LEG =0, nota=0, cant=0, cont=0;
-	cout << "ingrese nombre del alumno" << endl; //carga de datos 
+	cout << "ingrese nombre del alumno" << endl; 	//carga de datos 
 	cin >> nombre;
 	cout << "ingrese legajo del alumno" << endl;
 	cin >> LEG;
 	cout << "¿cuantas notas desea cargar?" << endl;
-	cin >> cant;									// finaliza la carga 
+	cin >> cant;					 
 	cout << "ingrese notas para sacar el promedio, nota maxima 10 " << endl;
 
 	flag = false; // bandera de 0 
 
-	while (cont != cant && nota <= 10)
+	while (cont != cant && nota <= 10) // validacion de la nota
 	{
 		cin >> nota;
 		if (nota == 0)
@@ -41,7 +41,7 @@ inicio:
 			suma = suma + nota;
 		}
 		cont++;
-	}
+	}						// finaliza la carga de datos
 	if (nota > 10)
 	{
 		cout << "error la nota es mayor a 10" << endl;
