@@ -1,32 +1,49 @@
-//andres Guillermo Castro
-//k1051
+// andres Guillermo Castro
+// k1051
 // TP1: Tema_Libre 
-// FALTA EL USO DE BOOL Y STRING (NO ESTA COMPLETO)
 // 23/04/2015
 
 #include <iostream>
+#include <string>
 using namespace std;
 int LEG, nota, cant, cont;
-bool flag;
-char preg;
+string nombre;		//nombre del alumno
+bool flag;		// bandera de 0
+char rta; 		//caracter para pregunta
 double prom, suma;
 unsigned int cont1 = 0;
+void restart()
+{
+	system("pause");
+	while (true)
+	{
+		cont1++;
+		if (cont1 % 1000 == 0)
+			goto inicio;
+	}
+}
+
+
 
 int main()
 {
 inicio:
+	cout << "ingrese nombre del alumno" << endl; 			//carga de datos 
+	cin >> nombre;
 	cout << "ingrese legajo del alumno" << endl;
 	cin >> LEG;
 	cout << "¿cuantas notas desea cargar?" << endl;
-	cin >> cant;
-	cout << "ingrese notas para sacar el promedio " << endl;
-	flag = false;
-	while (cont != cant)
+	cin >> cant;							// finaliza la carga 
+	cout << "ingrese notas para sacar el promedio, nota maxima 10 " << endl;
+
+	flag = false; // bandera de 0 
+
+	while (cont != cant && cant <= 10)
 	{
 		cin >> nota;
 		if (nota == 0)
 		{
-			flag = true;
+			flag = true; 		// si la nota es 0 se activa la bandera 
 			suma = suma + nota;
 		}
 		else
@@ -35,40 +52,33 @@ inicio:
 		}
 		cont++;
 	}
+	if (cant > 10)
+	{
+		cout << "error la nota es mayor a 10" << endl;
+		restart();
+
+	}
 	if (flag == true)
 	{
 		cout << "se detecto una nota igual a 0;" << endl << "desea volver a cargar? y/n ";
-		cin >> preg;
+		cin >> rta;
 
-		if (preg == 'y')
+		if (rta == 'y')
 		{
-			while (true)
-			{
-				cont1++;
-				if (cont1 % 1000 == 0)
-				goto inicio;
-			}
+			restart();
 		}
-
 	}
-	cout << " la carga de notas a finalizado. ¿ desea sacar el promedio y/n?" << endl;
-	cin >> preg;
 
-	if (preg == 'y')
+	cout << " la carga de notas a finalizado. ¿ desea sacar el promedio y/n?" << endl;
+	cin >> rta;
+
+	if (rta == 'y')
 	{
 		prom = suma / cant;
-		cout << "el promedio de alumno " << LEG << " es " << prom << endl;
+		cout << "el promedio de alumno "<< nombre << " " << LEG << " es " << prom << endl;
 	}
 	else
 	{
-
-		system("pause");
-		while (true)
-		{
-			cont1++;
-			if (cont1 % 1000 == 0)
-			goto inicio;
-		}
+		restart();
 	}
-
 }
