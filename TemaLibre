@@ -7,7 +7,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int LEG, nota, cant, cont;
+int LEG =0, nota=0, cant=0, cont=0;
 string nombre;
 bool flag;
 char preg;
@@ -17,6 +17,7 @@ unsigned int cont1 = 0;
 int main()
 {
 inicio:
+	LEG =0, nota=0, cant=0, cont=0;
 	cout << "ingrese nombre del alumno" << endl; //carga de datos 
 	cin >> nombre;
 	cout << "ingrese legajo del alumno" << endl;
