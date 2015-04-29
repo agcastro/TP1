@@ -1,7 +1,6 @@
 //andres Guillermo Castro
 //k1051
 // TP1: Tema_Libre 
-// FALTA EL USO DE BOOL Y STRING (NO ESTA COMPLETO)
 // 23/04/2015
 
 #include <iostream>
@@ -9,6 +8,7 @@
 using namespace std;
 int LEG, nota, cant, cont;
 string nombre;
+string apellido;
 bool flag;
 char preg;
 double prom, suma;
@@ -20,6 +20,8 @@ inicio:
 	LEG =0, nota=0, cant=0, cont=0;
 	cout << "ingrese nombre del alumno" << endl; 	//carga de datos 
 	cin >> nombre;
+	cout << "ingrese apellido del alumno" << endl;
+	cin >> apellido;
 	cout << "ingrese legajo del alumno" << endl;
 	cin >> LEG;
 	cout << "¿cuantas notas desea cargar?" << endl;
@@ -77,7 +79,7 @@ inicio:
 	if (preg == 'y')
 	{
 		prom = suma / cant;
-		cout << "el promedio de alumno "<< nombre << " " << LEG << " es " << prom << endl;
+		cout << "el promedio de alumno "<< nombre + apellido << " " << LEG << " es " << prom << endl;
 	}
 	else
 	{
